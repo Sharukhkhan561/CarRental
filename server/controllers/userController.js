@@ -31,3 +31,6 @@ export const registerUser = async (req, res) => {
 };
 // login USer 
 
+const loginUser= async()=>{
+
+}
