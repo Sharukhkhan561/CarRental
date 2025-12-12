@@ -31,7 +31,7 @@ export const registerUser = async (req, res) => {
 };
 // login USer 
 
-const loginUser= async(req,res)=>{
+export const loginUser= async(req,res)=>{
   try{
     const {email,password}= req.body
     const user = await User.findOne({email})
@@ -48,5 +48,17 @@ const loginUser= async(req,res)=>{
     console.log(error.message);
     res.json({ success: false, message: error.message });
   }
+  
+}
 
+// Get user data from JWT
+export const getUserData = async(req,res)=>{
+  try {
+    const {user} = req;
+    res.json({success: true, user})
+  } catch (error) {
+    console.log(error.message)
+    res.json({ success: false, message: error.message });
+    
+  }
 }
